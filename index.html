@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5 букв</title>
+  </head>
+
+  <style>
+    body {
+      font-family: system-ui;
+    }
+  </style>
+  <body>
+    <h1>5 букв</h1>
+
+    <form>
+      <fieldset class="letters--knowing">
+        <legend>Введите отгаданные буквы</legend>
+        <input maxlength="1" />
+        <input maxlength="1" />
+        <input maxlength="1" />
+        <input maxlength="1" />
+        <input maxlength="1" />
+      </fieldset>
+
+      <fieldset class="letters--unknowing">
+        <legend>Введите буквы без точного местоположения</legend>
+        <input maxlength="5" />
+      </fieldset>
+
+      <button type="submit">Найти</button>
+    </form>
+
+    <div>
+      <h2>Результаты:</h2>
+      <p class="result"></p>
+    </div>
+
+    <script src="main.js" type="module"></script>
+  </body>
+</html>
