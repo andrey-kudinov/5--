@@ -8,9 +8,9 @@ input {
 }
 
 .letters--knowing input {
-  width: 30px;
+  width: 20px;
   height: 30px;
-  padding-left: 24px;
+  padding-left: 16px;
 }
 
 .letters--unknowing input {
