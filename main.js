@@ -7,15 +7,14 @@ const init = () => {
   const showResults = (e) => {
     e.preventDefault();
 
-    const firstLetter = inputsKnowing[0].value;
-    const secondLetter = inputsKnowing[1].value;
-    const thirdLetter = inputsKnowing[2].value;
-    const fourthLetter = inputsKnowing[3].value;
-    const fifthLetter = inputsKnowing[4].value;
-    const letters = inputUnknowing.value;
+    const firstLetter = inputsKnowing[0].value.toLowerCase();
+    const secondLetter = inputsKnowing[1].value.toLowerCase();
+    const thirdLetter = inputsKnowing[2].value.toLowerCase();
+    const fourthLetter = inputsKnowing[3].value.toLowerCase();
+    const fifthLetter = inputsKnowing[4].value.toLowerCase();
+    const letters = inputUnknowing.value.toLowerCase();
 
     const result = [];
-    console.log(firstLetter, secondLetter, thirdLetter, fourthLetter, fifthLetter, letters);
 
     data.forEach(word => {
       let isValid = true;
@@ -36,8 +35,13 @@ const init = () => {
     });
 
     const resultContainer = document.querySelector('.result');
+
+    if (result.length === 0) {
+      resultContainer.textContent = 'поиск не дал результатов';
+      return;
+    }
+
     resultContainer.textContent = result.join(', ');
-    console.log(result);
   };
 
   const button = document.querySelector('button');
