@@ -3,25 +3,15 @@ body {
   box-sizing: border-box;
 }
 
-input {
-  font-size: 16px;
+form {
+  margin-bottom: 16px;
 }
 
-.letters--correct input {
+input {
+  font-size: 16px;
   width: 20px;
   height: 30px;
   padding-left: 16px;
-}
-
-.letters--includes input {
-  width: 50px;
-  height: 30px;
-  padding-left: 8px;
-}
-
-.letters--incorrect input {
-  height: 30px;
-  padding-left: 8px;
 }
 
 button {
@@ -29,4 +19,16 @@ button {
   padding: 8px 16px;
   font-size: 16px;
   border-radius: 4px;
+}
+
+.incorrect {
+  background: gainsboro;
+}
+
+.includes {
+  background: yellow;
+}
+
+.correct {
+  background: lightgreen;
 }

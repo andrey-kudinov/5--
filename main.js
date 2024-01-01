@@ -1,18 +1,20 @@
 import { data } from './5-letter-words.js';
 
 const init = () => {
-  const inputsKnowing = document.querySelectorAll('.letters--knowing input');
-  const inputUnknowing = document.querySelector('.letters--unknowing input');
+  const inputsCorrect = document.querySelectorAll('.letters--correct input');
+  const inputIncludes = document.querySelector('.letters--includes input');
+  const inputIncorrect = document.querySelector('.letters--incorrect input');
 
-  const showResults = (e) => {
+  const showResults = e => {
     e.preventDefault();
 
-    const firstLetter = inputsKnowing[0].value.toLowerCase();
-    const secondLetter = inputsKnowing[1].value.toLowerCase();
-    const thirdLetter = inputsKnowing[2].value.toLowerCase();
-    const fourthLetter = inputsKnowing[3].value.toLowerCase();
-    const fifthLetter = inputsKnowing[4].value.toLowerCase();
-    const letters = inputUnknowing.value.toLowerCase();
+    const firstLetter = inputsCorrect[0].value.toLowerCase();
+    const secondLetter = inputsCorrect[1].value.toLowerCase();
+    const thirdLetter = inputsCorrect[2].value.toLowerCase();
+    const fourthLetter = inputsCorrect[3].value.toLowerCase();
+    const fifthLetter = inputsCorrect[4].value.toLowerCase();
+    const includeLetters = inputIncludes.value.toLowerCase();
+    const incorrectLetters = inputIncorrect.value.toLowerCase();
 
     const result = [];
 
@@ -24,11 +26,15 @@ const init = () => {
       if (thirdLetter) isValid = isValid && word[2] === thirdLetter;
       if (fourthLetter) isValid = isValid && word[3] === fourthLetter;
       if (fifthLetter) isValid = isValid && word[4] === fifthLetter;
-  
-      letters.split('').forEach(letter => {
+
+      includeLetters.split('').forEach(letter => {
         isValid = isValid && word.includes(letter);
       });
-  
+
+      incorrectLetters.split('').forEach(letter => {
+        isValid = isValid && !word.includes(letter);
+      });
+
       if (isValid) {
         result.push(word);
       }
@@ -44,8 +50,8 @@ const init = () => {
     resultContainer.textContent = result.join(', ');
   };
 
-  const button = document.querySelector('button');
-  button.addEventListener('click', showResults);
+  const form = document.querySelector('form');
+  form.addEventListener('submit', showResults);
 };
 
 document.addEventListener('DOMContentLoaded', init);

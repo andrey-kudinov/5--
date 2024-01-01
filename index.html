@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,7 +11,7 @@
     <h1>5 букв</h1>
 
     <form>
-      <fieldset class="letters--knowing">
+      <fieldset class="letters--correct">
         <legend>Введите отгаданные буквы</legend>
         <input maxlength="1" />
         <input maxlength="1" />
@@ -20,9 +20,14 @@
         <input maxlength="1" />
       </fieldset>
 
-      <fieldset class="letters--unknowing">
+      <fieldset class="letters--includes">
         <legend>Введите буквы без точного местоположения</legend>
         <input maxlength="5" />
+      </fieldset>
+
+      <fieldset class="letters--incorrect">
+        <legend>Отсутствующие буквы</legend>
+        <input />
       </fieldset>
 
       <button type="submit">Найти</button>
@@ -32,6 +37,8 @@
       <h2>Результаты:</h2>
       <p class="result">...</p>
     </div>
+
+    <a href="game.html" target="_blank" title="Открыть в новом окне игру">Перейти к игре</a>
 
     <script src="main.js" type="module"></script>
   </body>
