@@ -45,15 +45,15 @@ const handleFormSubmit = e => {
   e.preventDefault();
 
   const inputs = fieldsets[localStorage.step].querySelectorAll('input');
-  const inputValues = Array.from(inputs).map(input => input.value);
+  const inputValues = Array.from(inputs).map(input => input.value.toLowerCase());
 
   const letters = localStorage.word.split('');
   letters.forEach((letter, index) => {
-    if (letters.includes(inputs[index].value)) {
+    if (letters.includes(inputs[index].value.toLowerCase())) {
       inputs[index].classList.add('includes');
     }
   
-    if (inputs[index].value === letter) {
+    if (inputs[index].value.toLowerCase() === letter) {
       inputs[index].classList.add('correct');
     } else {
       inputs[index].classList.add('incorrect');
